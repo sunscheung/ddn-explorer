@@ -36,10 +36,10 @@ const columns = (self) => [{
   width: '14%',
   render: (text) =>{ 
     var str=text;
-    var arr=str.split('|');
+    var arr=str && str.split('|');
     return <div>
       {
-        arr.map((item, index) => { return <div key={index}><LimitText link="/accounts/" target="_blank" title={item} length={15} /></div> })
+        arr && Array.isArray(arr) && arr.map((item, index) => { return <div key={index}><LimitText link="/accounts/" target="_blank" title={item} length={15} /></div> })
       }
     </div>
   }
